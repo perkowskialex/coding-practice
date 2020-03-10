@@ -7,6 +7,17 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+function palindrome(str) {
+  // lets make it recursive
+  // base case check if the str ends match, if they dont it will solve a lot of time
+  if (str[0] !== str[str.length - 1]) {
+    return false;
+  }
+  reversed = str
+    .split("")
+    .reverse()
+    .join("");
+  return str === reversed;
+}
 
 module.exports = palindrome;
