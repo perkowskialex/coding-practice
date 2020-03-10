@@ -10,22 +10,15 @@
 
 function anagrams(stringA, stringB) {
   // convert to lowercase and clean string to remove punc and spaces
-  stringA = stringA
-    .toLowerCase()
-    .replace(/([^\w])/g, "")
-    .split("")
-    .sort(function(a, b) {
-      return a < b ? -1 : a > b ? 1 : 0;
-    })
-    .join("");
-  stringB = stringB
-    .toLowerCase()
-    .replace(/([^\w])/g, "")
-    .split("")
-    .sort(function(a, b) {
-      return a < b ? -1 : a > b ? 1 : 0;
-    })
-    .join("");
-  return stringA === stringB;
+  return cleanString(stringA) === cleanString(stringB);
 }
+// helper func
+const cleanString = string => {
+  return string
+    .toLowerCase()
+    .replace(/([^\w])/g, "")
+    .split("")
+    .sort()
+    .join("");
+};
 module.exports = anagrams;
