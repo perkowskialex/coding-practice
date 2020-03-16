@@ -17,6 +17,10 @@
 
 function matrix(n) {
   let result = [];
+  for (let i = 0; i < n; i++) {
+    result.push([]);
+  }
+
   let counter = 1;
 
   // start column
@@ -26,10 +30,6 @@ function matrix(n) {
   let sr = 0;
   let er = n - 1;
   // last number to print out is n^2
-
-  for (let i = 0; i < n; i++) {
-    result.push([]);
-  }
 
   while (sc <= ec && sr <= er) {
     // top row
@@ -47,8 +47,9 @@ function matrix(n) {
     }
     // decrement column
     ec--;
+
     // bottom row
-    for (let i = ec; i >= sr; i--) {
+    for (let i = ec; i >= sc; i--) {
       result[er][i] = counter;
       counter++;
     }
