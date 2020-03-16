@@ -16,6 +16,7 @@ function fib(n) {
   let b = 1;
   let c = a + b;
   // console.log('start for loop')
+  //   we want n-2 because we have 2 vars equaling the start of the fib sequence.
   for (let i = 0; i < n - 2; i++) {
     a = b;
     //   console.log(a)
