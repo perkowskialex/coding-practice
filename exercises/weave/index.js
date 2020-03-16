@@ -24,6 +24,21 @@
 
 const Queue = require("./queue");
 
-function weave(sourceOne, sourceTwo) {}
+function weave(sourceOne, sourceTwo) {
+  // make a new queue to push to
+  const result = new Queue();
+  //   check if element exists in source
+  while (sourceOne.peek() || sourceTwo.peek()) {
+    //   for varying lengths you will need to branch
+    if (sourceOne.peek()) {
+      // pops element and unshifts it to queue
+      result.add(sourceOne.remove());
+    }
+    if (sourceTwo.peek()) {
+      result.add(sourceTwo.remove());
+    }
+  }
+  return result;
+}
 
 module.exports = weave;
