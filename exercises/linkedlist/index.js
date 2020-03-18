@@ -65,6 +65,14 @@ class LinkedList {
     }
     previous.next = null;
   }
+
+  insertLast(data) {
+    if (!this.head) {
+      this.head.insertFirst(data);
+    }
+    this.getLast();
+    this.head.next = data;
+  }
 }
 
 module.exports = { Node, LinkedList };
