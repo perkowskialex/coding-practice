@@ -67,11 +67,12 @@ class LinkedList {
   }
 
   insertLast(data) {
-    if (!this.head) {
-      this.head.insertFirst(data);
+    let last = this.getLast();
+    if (last) {
+      last.next = new Node(data);
+    } else {
+      this.head = new Node(data);
     }
-    this.getLast();
-    this.head.next = data;
   }
 }
 
