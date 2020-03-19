@@ -75,15 +75,18 @@ class LinkedList {
     }
   }
 
-  getAt(number) {
-    if (!this.head) return null;
+  getAt(index) {
     let counter = 0;
     let node = this.head;
-    while (number !== counter) {
+    while (node) {
+      if (counter === index) {
+        return node;
+      }
+
       counter++;
       node = node.next;
     }
-    return node;
+    return null;
   }
 
   removeAt(number) {
@@ -97,6 +100,20 @@ class LinkedList {
       return;
     }
     previous.next = previous.next.next;
+  }
+
+  insertAt(data, integer) {
+    if (!this.head) {
+      this.head = new Node(data);
+      return;
+    }
+    if (integer === 0) {
+      this.head = new Node(data, this.head);
+      return;
+    }
+    let previous = this.getAt(integer - 1) || this.getLast();
+    let node = new Node(data, previous.next);
+    previous.next = node;
   }
 }
 
