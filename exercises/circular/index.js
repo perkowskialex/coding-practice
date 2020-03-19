@@ -12,6 +12,21 @@
 //   c.next = b;
 //   circular(l) // true
 
-function circular(list) {}
+function circular(list) {
+  let slow = list.getFirst();
+  let fast = list.getFirst();
+  while (fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow === fast) {
+      return true;
+    }
+  }
+  // iterate thru list
+  // are slow and fast the same?
+  // are the next two nodes for fast defined? --> move slow up by 1
+  // are they the same = circular list
+  return false;
+}
 
 module.exports = circular;
