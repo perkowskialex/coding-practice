@@ -27,6 +27,12 @@ class Node {
   }
 }
 
-class Tree {}
+class Tree {
+  constructor() {
+    this.root = null;
+  }
+
+  traverseBF() {}
+}
 
 module.exports = { Tree, Node };
